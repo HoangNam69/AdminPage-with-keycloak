@@ -27,7 +27,7 @@ function Registration() {
         }
 
         try {
-            const response = await axios.post('http://localhost:8080/api/auth/register', dataForm);
+            const response = await axios.post('http://localhost:8080/register', dataForm);
             alert('Registration successful');
             console.log(response.data);
             setDataForm({

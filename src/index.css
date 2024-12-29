@@ -1,5 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Format page */
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* variables */
+:root {
+  --text-color-primary: #EEEEEE;
+  --text-color-actived: #EF5A6F;
+  --tetx-color-hover: #C6E7FF;
+  --color-focus: #76ABAE;
+  --bg-color: #222831;
+  --bg-color-secondary: #31363F;
+
+}
+
+html {
+  font-family: "Poppins", serif;
+}
+
+/* ----------------- Common ----------------- */
+.container {
+  width: 100%;
+  padding: 0 200px;
+}
+
+.admin {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.btn {
+  width: fit-content;
+  font-size: 18px;
+  padding: 6px 60px;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.btn:hover {
+  cursor: pointer;
+
+}
+
+.btn-submit {
+  background-color: #76ABAE;
+  color: var(--text-color-primary);
+  position: absolute;
+  bottom: -60px;
+  right: 350px;
+}
+
+.btn-submit:hover {
+  background-color: var(--bg-color-secondary);
+  color: var(--tetx-color-hover);
+}
+
+/* ---- Header ---- */
+.header {
+  width: 100%;
+  height: 80px;
+  line-height: 80px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  background-color: var(--bg-color);
+
+}
+
+
+.header__logo,
+.header__signup,
+.header__login,
+.header__logout,
+.header-my-profile {
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-color-primary);
+}
+
+.header__login,
+.header__logout {
+  border: none;
+  background: none;
+  outline: none;
+}
+
+
+.header__logo {
+  color: var(--text-color-actived);
+}
+
+.header__logo:hover,
+.header__signup:hover,
+.header__login:hover,
+.header__logout:hover,
+.header-my-profile:hover {
+  color: var(--tetx-color-hover);
+  cursor: pointer;
+}
+
+.header__action {
+  display: flex;
+  column-gap: 15px;
+}
+
+/* ---- Footer ---- */
+.footer {
+  width: 100%;
+  height: 40px;
+  background-color: var(--bg-color-secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-color-primary);
+  position: absolute;
+  bottom: 0;
+  font-size: 14px;
+}
+
+
+/* ------ Admin-Page */
+
+/* ------ registration ------ */
+.registration {
+  width: 100%;
+}
+
+/* ------ Login ------ */
+.login {
+  width: 100%;
+}
+
+/* ------ Form ------ */
+.title {
+  text-align: center;
+  font-size: 38px;
+  font-weight: 600;
+  padding: 24px 0;
+}
+
+.form {
+  width: 100%;
+  padding: 0 350px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.form .form-group {
+  width: 100%;
+  padding: 10px 0;
+}
+
+.form .form-group .form-label {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.form .form-group .form-input {
+  width: 100%;
+  font-size: 18px;
+  padding: 10px 8px;
+  border: none;
+  outline: none;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 4px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.form .form-group .form-input::placeholder {
+  font-size: 16px;
+}
+
+.form .form-group .form-input:hover {
+  box-shadow: var(--tetx-color-hover) 0px 5px 15px;
+  transition: 0.2s;
+}
+
+.form .form-group .form-input:focus {
+  box-shadow: var(--color-focus) 0px 5px 15px;
+  transition: 0.2s;
+}
+
+/* Home */
+.home {
+  width: 680px;
+  height: 640px;
+  display: flex;
+  margin: auto;
+  margin-top: 60px;
+  background-color: var(--bg-color-secondary);
+  color: var(--text-color-primary);
+  justify-content: center;
+  align-items: center;
+  clip-path: polygon(7% 32%, 3% 7%, 38% 0, 67% 8%, 97% 13%, 100% 35%, 97% 73%, 91% 88%, 67% 99%, 33% 92%, 16% 72%, 0 55%);
+}
+
+.home:hover {
+  color: var(--text-color-actived);
+  transition: 1s;
 }

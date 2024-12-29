@@ -1,12 +1,12 @@
-import React from 'react'
-import Header from './Header'
-import Footer from './Footer'
+import React from "react";
+import Header from "./Header";
+import Footer from "./Footer";
 
 function MainLayout({ children }) {
     return (
-        <div className='admin'>
+        <div className="admin">
             <Header />
-            {children}
+            <main className="content">{children}</main>
             <Footer />
         </div>
     );

@@ -1,20 +1,25 @@
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import MainLayout from '../components/layouts/MainLayout'
-import Registration from '../components/Registration';
-import Login from '../components/Login'
-
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Registration from "../components/Registration";
+import MainLayout from "../components/layout/MainLayout";
+import ProtectedRoute from "./ProtectedRoute";
+import Profile from "../components/Profile"; // Trang xem thông tin user
+import Home from "../components/Home"
 
 function AppRoutes() {
-    return (
-        <Router>
-            <Routes>
-                <Route path='/' element={<MainLayout><Registration /></MainLayout>} />
-                <Route path='/register' element={<MainLayout><Registration /></MainLayout>} />
-                <Route path='/login' element={<MainLayout><Login /></MainLayout>} />
-            </Routes>
-        </Router>
-    );
+  return (
+    <Router>
+      <Routes>
+        {/* Public Routes */}
+        <Route path="/register" element={<MainLayout><Registration /></MainLayout>} />
+        <Route path="/" element={<MainLayout><Home /></MainLayout>} />
+        {/* Protected Routes */}
+        <Route element={<ProtectedRoute />}>
+          <Route path="/my-profile" element={<MainLayout><Profile /></MainLayout>} />
+        </Route>
+      </Routes>
+    </Router>
+  );
 }
 
 export default AppRoutes;
