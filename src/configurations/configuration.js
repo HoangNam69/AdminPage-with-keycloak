@@ -8,7 +8,7 @@ export const API = {
 };
 
 export const KEYCLOAK_CONFIG = {
-    url: "http://localhost:8180",
+    url: "http://localhost:8180/",
     realm: "hoangnam",
     clientId: "user-management-webapp",
 }

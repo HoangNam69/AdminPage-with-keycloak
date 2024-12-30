@@ -1,7 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import axios from 'axios';
+import { AuthContext } from '../contexts/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 
 function Registration() {
+
+    const { keycloak } = useContext(AuthContext);
+    const navigateHome = useNavigate()
+
 
     const [dataForm, setDataForm] = useState({
         username: '',
@@ -38,6 +44,8 @@ function Registration() {
                 firstName: '',
                 lastName: ''
             })
+            navigateHome('/')
+            keycloak.login();
         } catch (error) {
             alert('Registration failed');
             console.error(error);

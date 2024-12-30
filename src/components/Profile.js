@@ -3,7 +3,7 @@ import keycloak from "../keycloak";
 import { getMyProfile } from '../services/userService'
 
 function Profile() {
-  const [profile, setProfile] = useState(null);
+  const [profile, setProfile] = useState({});
 
   const getProfile = async () => {
     try {
@@ -24,7 +24,7 @@ function Profile() {
 
   return (
     <div className="profile">
-      {/* {profile.username} */}
+      {profile.email}
     </div>
   );
 }

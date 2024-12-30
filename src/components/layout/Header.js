@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import keycloak from "../../keycloak";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 function Header() {
+
+    const { isAuthenticated, keycloak } = useContext(AuthContext);
+
+
     const handleLogin = () => {
         keycloak.login();
     };
@@ -17,7 +21,7 @@ function Header() {
                 <Link to="/" className="header__logo">Management System</Link>
             </div>
             <div className="header__action">
-                {!keycloak.authenticated ? (
+                {!isAuthenticated ? (
                     <>
                         <Link to="/register" className="header__signup">Sign Up</Link>
                         <button onClick={handleLogin} className="header__login">Login</button>
