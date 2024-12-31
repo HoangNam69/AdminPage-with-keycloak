@@ -1,10 +1,18 @@
-import React from "react";
-
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthProvider";
 function Home() {
-
+  const { isAuthenticated } = useContext(AuthContext);
   return (
     <div className="home">
-      <h1>Welcome to Management System</h1>
+      <div>
+        <h1>Welcome to Management System</h1>
+      </div>
+      <div>
+        {!isAuthenticated && (
+          <Link to={'/login'}>Login with API use User Provider Database</Link>
+        )}
+      </div>
     </div>
   );
 }

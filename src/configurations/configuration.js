@@ -4,7 +4,8 @@ export const CONFIG = {
 
 export const API = {
     REGISTRATION: '/register',
-    MY_PROFILE: '/my-profile'
+    MY_PROFILE: '/my-profile',
+    LOGIN: '/login-user'
 };
 
 export const KEYCLOAK_CONFIG = {

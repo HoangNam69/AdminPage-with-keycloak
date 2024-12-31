@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
-import axios from 'axios';
 import { AuthContext } from '../contexts/AuthProvider';
 import { useNavigate } from 'react-router-dom';
+import { register } from '../services/userService'
 
 function Registration() {
 
@@ -24,31 +24,41 @@ function Registration() {
         console.log(name + " -- " + value)
     }
 
-    const handleRegistration = async (e) => {
-        e.preventDefault();
+    const isFormValid = () => {
+        return Object.values(dataForm).every(field => field.trim() !== "");
+    };
 
+
+    const handleRegistration = (e) => {
+        e.preventDefault();
+        if (!isFormValid()) {
+            alert('All field is not empty!');
+            return;
+        }
         if (dataForm.password !== dataForm.confirmPassword) {
             alert('Passwords do not match');
             return;
         }
 
-        try {
-            const response = await axios.post('http://localhost:8080/register', dataForm);
-            alert('Registration successful');
-            console.log(response.data);
-            setDataForm({
-                username: '',
-                password: '',
-                confirmPassword: '',
-                email: '',
-                firstName: '',
-                lastName: ''
-            })
-            navigateHome('/')
-            keycloak.login();
-        } catch (error) {
-            alert('Registration failed');
-            console.error(error);
+        if (isFormValid()) {
+            try {
+                const response = register(dataForm)
+                alert('Registration successful');
+                console.log(response.data);
+                setDataForm({
+                    username: '',
+                    password: '',
+                    confirmPassword: '',
+                    email: '',
+                    firstName: '',
+                    lastName: ''
+                })
+                navigateHome('/')
+                keycloak.login()
+            } catch (error) {
+                alert('Registration failed');
+                console.error(error);
+            }
         }
 
     }
